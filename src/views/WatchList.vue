@@ -1,15 +1,23 @@
 <script setup lang="ts">
-const x = await fetch('https://www.episodate.com/api/most-popular?page=1')
-const h = await x.json()
+import { ref, onMounted } from 'vue'
 
-//console.log(h.tv_shows[1])
+let data: any = ref([])
+
+onMounted(async () => {
+  const response = await fetch(
+    'https://www.episodate.com/api/most-popular?page=1',
+  )
+  data.value = await response.json()
+
+  console.log(data.value.tv_shows[1])
+})
 </script>
 
 <template>
   <h2 class="title">Por ver</h2>
 
-  <div v-for="(show, index) in h.tv_shows" :key="index">
-    {{ show[index].name }}
+  <div v-for="(show, index) in data.tv_shows" :key="index">
+    {{ show.name }}
   </div>
 </template>
 
