@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-let data: any = ref([])
+const data: any = ref([])
 
 onMounted(async () => {
   const response = await fetch(
