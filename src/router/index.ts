@@ -4,8 +4,8 @@ import WatchList from '@/views/WatchList.vue'
 import MiquelView from '@/views/MiquelView.vue'
 
 const routes = [
-  { path: '/', component: MiquelView },
-  { path: '/watchlist', component: WatchList },
+  { path: '/', component: WatchList },
+  { path: '/miquelview', component: MiquelView },
 ]
 
 export default createRouter({

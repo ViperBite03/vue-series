@@ -10,8 +10,8 @@ interface IOption {
 }
 
 const options = ref<IOption[]>([
-  { icon: HomeSVG, link: 'home' },
-  { icon: HomeSVG, link: 'laia' },
+  { icon: HomeSVG, link: '/' },
+  { icon: HomeSVG, link: 'miquelview' },
   { icon: HomeSVG, link: 'watchlist' },
   { icon: HomeSVG, link: 'myList' },
 ])
