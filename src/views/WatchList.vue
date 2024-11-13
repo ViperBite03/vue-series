@@ -33,7 +33,8 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: 100px;
+  height: 75vh;
+  overflow: scroll;
 
   .shows {
     display: grid;

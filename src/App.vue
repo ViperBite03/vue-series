@@ -20,19 +20,14 @@ import SearchBar from '@/components/SearchBar.vue'
   position: relative;
   height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   padding: 0 50px;
 
   .header {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    padding: 20px;
-    margin-right: 30px;
+    padding: 20px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 }
 </style>

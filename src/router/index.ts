@@ -1,10 +1,10 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
-import WatchList from '@/views/WatchList.vue'
+import ContentView from '@/views/ContentView.vue'
 import MiquelView from '@/views/MiquelView.vue'
 
 const routes = [
-  { path: '/', component: WatchList },
+  { path: '/', component: ContentView },
   { path: '/miquelview', component: MiquelView },
 ]
 

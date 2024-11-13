@@ -20,6 +20,11 @@ const options = ref<IOption[]>([
 <style lang="scss">
 .options {
   width: fit-content;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
