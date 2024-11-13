@@ -34,6 +34,7 @@ const options = ref<IOption[]>([
 
   border: 1px solid;
   border-radius: 50px;
+  margin-right: 50px;
 
   .option {
     height: 35px;

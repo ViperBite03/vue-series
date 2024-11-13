@@ -9,8 +9,12 @@ onMounted(async () => {
   )
   data.value = await response.json()
 
-  console.log(data.value.tv_shows[1])
+  //console.log(data.value.tv_shows[1].id)
+
+  console.log('fuera del onmounted - watchlist')
 })
+
+console.log('fuera del onmounted - watchlist')
 </script>
 
 <template>
@@ -19,10 +23,12 @@ onMounted(async () => {
 
     <div class="shows">
       <div v-for="(show, index) in data.tv_shows" :key="index">
-        <div class="show">
-          <img class="thumbnail" :src="show.image_thumbnail_path" alt="" />
-          <span class="name">{{ show.name }}</span>
-        </div>
+        <RouterLink :to="`/${show.name}/${show.id}`">
+          <div class="show">
+            <img class="thumbnail" :src="show.image_thumbnail_path" alt="" />
+            <span class="name">{{ show.name }}</span>
+          </div>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -33,8 +39,6 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 75vh;
-  overflow: scroll;
 
   .shows {
     display: grid;
