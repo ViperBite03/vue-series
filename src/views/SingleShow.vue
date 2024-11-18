@@ -46,3 +46,5 @@ watch(
   <h1 v-else-if="data.tvShow?.name">{{ data.tvShow.name }}</h1>
   <div v-else>No se encontró información</div>
 </template>
+
+<style lang="scss"></style>
