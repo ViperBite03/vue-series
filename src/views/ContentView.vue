@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import WatchList from './WatchList.vue'
-import Watching from './Watching.vue'
+import InProgressShows from './InProgressShows.vue'
 </script>
 
 <template>
   <div class="content">
-    <Watching />
+    <InProgressShows />
     <WatchList />
   </div>
 </template>

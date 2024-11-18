@@ -10,11 +10,7 @@ onMounted(async () => {
   data.value = await response.json()
 
   //console.log(data.value.tv_shows[1].id)
-
-  console.log('fuera del onmounted - watchlist')
 })
-
-console.log('fuera del onmounted - watchlist')
 </script>
 
 <template>
@@ -39,6 +35,8 @@ console.log('fuera del onmounted - watchlist')
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
+  max-height: 50vh;
 
   .shows {
     display: grid;
@@ -66,7 +64,7 @@ console.log('fuera del onmounted - watchlist')
       .thumbnail {
         height: 225px;
         width: 155px;
-        border-radius: 8px;
+        border-radius: 16px;
       }
 
       .name {

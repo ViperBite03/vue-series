@@ -17,11 +17,13 @@ onMounted(async () => {
 })
 
 console.log('%cfuera del onmounted - single show', 'color: red')
-
-console.log(data.value)
 </script>
 
 <template>
-  <h1>Estoy muy orgulloso de mi cosita bonita jeje</h1>
-  <div>{{ data.tvShow.name }}</div>
+  <div class="content">
+    <h1>Estoy muy orgulloso de mi cosita bonita jeje</h1>
+    {{ data.tv_show.name }}
+  </div>
 </template>
+
+<style lang="scss"></style>
