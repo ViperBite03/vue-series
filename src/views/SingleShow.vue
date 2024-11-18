@@ -1,27 +1,48 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-const destinationID = computed(() => useRoute().params.id)
+const route = useRoute()
+const destinationID = ref(route.params.id)
 
-const data: any = ref([])
+const data = ref<{ tvShow?: { name?: string } }>({})
+const isLoading = ref(true)
 
 onMounted(async () => {
-  const response = await fetch(
-    `https://www.episodate.com/api/show-details?q=${destinationID.value}`,
-  )
-
-  data.value = await response.json()
-
-  console.log('dentro del onmounted - single show')
+  try {
+    const response = await fetch(
+      `https://www.episodate.com/api/show-details?q=${destinationID.value}`,
+    )
+    data.value = await response.json()
+  } catch (error) {
+    console.error('Error al cargar los datos:', error)
+  } finally {
+    isLoading.value = false
+  }
 })
 
-console.log('%cfuera del onmounted - single show', 'color: red')
+watch(
+  () => route.params.id,
+  async newID => {
+    destinationID.value = newID
+    isLoading.value = true
 
-console.log(data.value)
+    try {
+      const response = await fetch(
+        `https://www.episodate.com/api/show-details?q=${newID}`,
+      )
+      data.value = await response.json()
+    } catch (error) {
+      console.error('Error al cargar los datos:', error)
+    } finally {
+      isLoading.value = false
+    }
+  },
+)
 </script>
 
 <template>
-  <h1>Estoy muy orgulloso de mi cosita bonita jeje</h1>
-  <div>{{ data.tvShow.name }}</div>
+  <div v-if="isLoading">Cargando...</div>
+  <h1 v-else-if="data.tvShow?.name">{{ data.tvShow.name }}</h1>
+  <div v-else>No se encontró información</div>
 </template>
