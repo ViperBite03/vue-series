@@ -14,7 +14,7 @@ import InProgressShows from './InProgressShows.vue'
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 100px;
   height: 100%;
   margin-left: 100px;
 }

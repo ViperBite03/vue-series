@@ -1,25 +1,38 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { defineProps, ref, onMounted } from 'vue'
 
-const data: any = ref([])
+const showBG = ref<HTMLElement | null>(null)
 
-onMounted(async () => {
-  const response = await fetch(
-    `https://www.episodate.com/api/show-details?q=arrow`,
-  )
+const props = defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  cover: {
+    type: String,
+    required: true,
+  },
+})
 
-  data.value = await response.json()
-
-  console.log(data.value + ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+onMounted(() => {
+  if (showBG.value) {
+    showBG.value.style.backgroundImage = `url(${props.cover})`
+  }
 })
 </script>
 
 <template>
   <div class="show">
-    <div class="cover"></div>
-    <div class="name"></div>
-    <div class="progress"></div>
-    <div class="background"></div>
+    <div class="cover">
+      <img :src="cover" alt="" />
+    </div>
+
+    <div class="background" ref="showBG">
+      <div class="BG">
+        <div class="name">{{ name }}</div>
+        <div class="progress"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,21 +43,43 @@ onMounted(async () => {
 
   .cover {
     position: absolute;
-    height: 225px;
-    width: 155px;
-    border-radius: 16px;
-    border: 1px solid red;
+    height: 150px;
+    width: 99px;
+    border-radius: 12px;
     bottom: 25px;
     left: 35px;
+    overflow: hidden;
+    z-index: 4;
+
+    img {
+      height: 100%;
+    }
   }
 
   .background {
     background-color: lightcyan;
-    height: 175px;
-    width: 500px;
+    height: 125px;
+    width: 325px;
     bottom: 0;
-    border-radius: 16px;
-    border: 1px solid;
+    border-radius: 12px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    overflow: hidden;
+
+    .BG {
+      backdrop-filter: blur(15px) brightness(75%);
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 15px 25px 15px 170px;
+
+      color: white;
+      text-align: end;
+    }
   }
 }
 </style>

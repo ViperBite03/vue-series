@@ -1,25 +1,33 @@
 :root {
   /* Color palette 1 */
 
-  --navy: #0e1627;
-  --mauve: #bd8e89;
-  --pink: #e5c5c1;
-  --blush: #f4e1e0;
-  --prune: #7f6269;
+  --darkest: #0e1627;
+  --main: #bd8e89;
+  --light: #e5c5c1;
+  --lightest: #f4e1e0;
+  --secondary: #7f6269;
 
   /* Color palette 2 */
 
-  --navy: #2f4156;
-  --teal: #567c8d;
-  --beige: #f5efeb;
-  --white: #ffffff;
-  --skyBlue: #c8d9e6;
+  --darkest: #2f4156;
+  --main: #567c8d;
+  --light: #f5efeb;
+  --lightest: #ffffff;
+  --secondary: #c8d9e6;
 
   /* Color palette 3 */
 
-  --black: #000000;
-  --granite: #b7a7a9;
-  --beige: #f6ece3;
-  --white: #ffffff;
-  --brown: #91766e;
+  --darkest: #000000;
+  --main: #b7a7a9;
+  --light: #f6ece3;
+  --lightest: #ffffff;
+  --secondary: #91766e;
+
+  /* Color palette 4 */
+
+  --darkest: #0c0420;
+  --main: #7b466a;
+  --light: #9f6496;
+  --lightest: #d391b0;
+  --secondary: #5d3c64;
 }
